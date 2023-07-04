@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 0}
+  m_BackGroundColor: {r: 0.60784316, g: 0.8039216, b: 0.8235294, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 661199498}
   - component: {fileID: 661199499}
   m_Layer: 0
-  m_Name: GraphController
+  m_Name: GraphManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,16 +256,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 661199497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1900778ada8b19a4fa5d754769e22e1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 721ff16e4ab35de479382cfd2ee524af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNodes: 6
-  numberOfAdjacecny: 9
-  iterations: 100
-  radius: 2
-  g: 1
-  k: 1
-  springNormalLength: 1
-  dampingValue: 0.1
-  nodePrefabs: {fileID: 8203394597463393917, guid: 593b508a3979b7543a9b551ca0a90f9b, type: 3}
-  lineRendererPrefab: {fileID: 7954119083156973807, guid: 715a9d3fe7dbdb24381bbbd5b6f2f8fa, type: 3}
+  numberOfNodes: 30
+  numberOfAdjacency: 40
+  nodePrefab: {fileID: 8203394597463393917, guid: 593b508a3979b7543a9b551ca0a90f9b, type: 3}
+  linePrefab: {fileID: 8635039862020664096, guid: 715a9d3fe7dbdb24381bbbd5b6f2f8fa, type: 3}

@@ -8,10 +8,9 @@ public class GraphGenerator
 
     public GraphGenerator(int _numberOfNodes, int _numberOfAdjacecny)
     {
-        Debug.Log("Start;");
         graph = new();
         numberOfNodes = _numberOfNodes;
-        numberOfAdjacecny = _numberOfAdjacecny < (numberOfNodes - 1) ? (numberOfNodes - 1) : _numberOfAdjacecny > ((numberOfNodes * (numberOfNodes - 1)) / 2) ? ((numberOfNodes * (numberOfNodes - 1)) / 2) : _numberOfAdjacecny;
+        numberOfAdjacecny = _numberOfAdjacecny;
         SetNodes();
     }
 
@@ -27,7 +26,7 @@ public class GraphGenerator
         }
     }
 
-
+    // TODO dont use attempts use a list then remove selected index.
     public Graph CreateGraph()
     {
         int count = 0;
@@ -60,6 +59,7 @@ public class GraphGenerator
             }
             attempts++;
         }
+        
         return graph;
     }
 }
