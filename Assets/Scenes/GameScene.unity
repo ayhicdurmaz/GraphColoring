@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 661199498}
   - component: {fileID: 661199499}
   m_Layer: 0
-  m_Name: GraphManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,10 +256,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 661199497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721ff16e4ab35de479382cfd2ee524af, type: 3}
+  m_Script: {fileID: 11500000, guid: 868c7b0c1e0d01b48bf8254e0f3717f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNodes: 30
-  numberOfAdjacency: 40
+  numberOfNodes: 10
+  numberOfAdjacency: 25
   nodePrefab: {fileID: 8203394597463393917, guid: 593b508a3979b7543a9b551ca0a90f9b, type: 3}
   linePrefab: {fileID: 8635039862020664096, guid: 715a9d3fe7dbdb24381bbbd5b6f2f8fa, type: 3}

@@ -7,6 +7,19 @@ public class Graph
     public List<Node> Nodes = new();
     public List<Edge> Edges = new();
 
+    public void SetNodes(int numberOfNodes)
+    {
+        for (int i = 0; i < numberOfNodes; i++)
+        {
+            Node node = new()
+            {
+                ID = i,
+                Value = 0
+            };
+            Nodes.Add(node);
+        }
+    }
+
     public Vector2[] GetSurroundingRectangle()
     {
         Vector2[] rectangle = new Vector2[3];

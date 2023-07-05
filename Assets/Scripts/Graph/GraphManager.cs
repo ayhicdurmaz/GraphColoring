@@ -1,40 +1,49 @@
+using System.ComponentModel;
 using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class GraphManager : MonoBehaviour
+public class GraphManager
 {
     private ForceDirectedLayout forceDirectedLayout;
-    private Graph graph;
+    public Graph graph { get; }
 
-    public int numberOfNodes;
-    public int numberOfAdjacency;
+    private int numberOfNodes;
+    private int numberOfAdjacency;
 
-    public GameObject nodePrefab;
-    public LineRenderer linePrefab;
+    private GameObject parent;
+    private GameObject nodePrefab;
+    private LineRenderer linePrefab;
 
-    private void Start()
+    public GraphManager(int _numberOfNodes, int _numberOfAdjaceny, GameObject _nodePrefabs, LineRenderer _linePrefabs, GameObject _parent)
     {
+        numberOfNodes = _numberOfNodes;
+        numberOfAdjacency = _numberOfAdjaceny;
+        nodePrefab = _nodePrefabs;
+        linePrefab = _linePrefabs;
+        parent = _parent;
+
         forceDirectedLayout = new ForceDirectedLayout();
         graph = forceDirectedLayout.GetLayout(numberOfNodes, numberOfAdjacency);
 
-        ShowGraph();
+        SetAndVisualizeGraph();
     }
 
-    private void ShowGraph()
+    private void SetAndVisualizeGraph()
     {
         GameObject graphHolder = new("GraphHolder");
-        graphHolder.transform.parent = this.transform;
+        graphHolder.transform.parent = parent.transform;
 
         foreach (var node in graph.Nodes)
         {
-            GameObject _node = Instantiate(nodePrefab, node.Position, Quaternion.identity, graphHolder.transform);
-            _node.name = "Node " + node.ID;
+            GameObject _node = GameObject.Instantiate(nodePrefab, node.Position, Quaternion.identity, graphHolder.transform);
+            _node.name = node.ID.ToString();
             node.node = _node;
         }
 
         foreach (var edge in graph.Edges)
         {
-            LineRenderer _line = Instantiate(linePrefab, graphHolder.transform);
+            LineRenderer _line = GameObject.Instantiate(linePrefab, graphHolder.transform);
             _line.name = "Line (" + edge.Source.ID + ", " + edge.Target.ID + ")";
 
             _line.startColor = new Color(1, 0.521f, 0.317f);
@@ -47,10 +56,12 @@ public class GraphManager : MonoBehaviour
             _line.SetPosition(0, edge.Source.Position);
             _line.SetPosition(1, edge.Target.Position);
 
-            edge.line = _line;
+            edge.Line = _line;
         }
 
-        graphHolder.transform.position = new Vector3(graph.GetSurroundingRectangle()[0].x, graph.GetSurroundingRectangle()[0].y, 0) * forceDirectedLayout.GetScaleRatio() * -1; 
-        graphHolder.transform.position += new Vector3(0,1,0);
+        graphHolder.transform.position = new Vector3(graph.GetSurroundingRectangle()[0].x, 0, 0) * forceDirectedLayout.GetScaleRatio() * -1;
+        graphHolder.transform.position += new Vector3(0, 1, 0);
     }
+
+
 }

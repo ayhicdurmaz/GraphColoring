@@ -11,19 +11,7 @@ public class GraphGenerator
         graph = new();
         numberOfNodes = _numberOfNodes;
         numberOfAdjacecny = _numberOfAdjacecny;
-        SetNodes();
-    }
-
-    public void SetNodes()
-    {
-        for (int i = 0; i < numberOfNodes; i++)
-        {
-            Node node = new()
-            {
-                ID = i
-            };
-            graph.Nodes.Add(node);
-        }
+        graph.SetNodes(numberOfNodes);
     }
 
     // TODO dont use attempts use a list then remove selected index.
@@ -58,6 +46,14 @@ public class GraphGenerator
                 count++;
             }
             attempts++;
+        }
+
+        foreach(var node in graph.Nodes){
+            foreach(var edge in graph.Edges){
+                if(edge.Source == node || edge.Target == node){
+                    node.Edges.Add(edge);
+                }
+            }
         }
         
         return graph;
