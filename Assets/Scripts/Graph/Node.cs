@@ -34,17 +34,20 @@ public class Node
 
     private static void OnNodeValueChanged(Node node)
     {
+        node.node.GetComponent<SpriteRenderer>().color = Singleton.colorList[node.Value];
         foreach (var edge in node.Edges)
         {
             if (edge.Source.Value == edge.Target.Value)
             {
-                edge.Line.startColor = Color.red;
-                edge.Line.endColor = Color.red;
+                edge.Line.startColor = Singleton.colorList[11];
+                edge.Line.endColor = Singleton.colorList[11];
+                edge.IsEdgeTrue = false;
             }
             else
             {
-                edge.Line.startColor = Color.white;
-                edge.Line.endColor = Color.white;
+                edge.Line.startColor = Singleton.colorList[10];
+                edge.Line.endColor = Singleton.colorList[10];
+                edge.IsEdgeTrue = true;
             }
         }
     }

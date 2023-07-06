@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.60784316, g: 0.8039216, b: 0.8235294, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -259,7 +259,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868c7b0c1e0d01b48bf8254e0f3717f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfNodes: 10
-  numberOfAdjacency: 25
+  colorLength: 0
+  numberOfNodes: 5
+  numberOfAdjacency: 7
   nodePrefab: {fileID: 8203394597463393917, guid: 593b508a3979b7543a9b551ca0a90f9b, type: 3}
   linePrefab: {fileID: 8635039862020664096, guid: 715a9d3fe7dbdb24381bbbd5b6f2f8fa, type: 3}
+  colorHolderPrefab: {fileID: 8393359180308570064, guid: 539669c9ab32f8a44afdcad99b6d754b, type: 3}
+  colorContainer: {fileID: 719992783}
+  colorsForGame:
+  - {r: 0.5411765, g: 0.52156866, b: 0.68235296, a: 1}
+  - {r: 0.9607843, g: 0.5254902, b: 0.20392157, a: 1}
+  - {r: 0.2, g: 0.5294118, b: 0.3254902, a: 1}
+  - {r: 0.93333334, g: 0.20784314, b: 0.21568628, a: 1}
+  - {r: 0.0627451, g: 0.48235294, b: 0.6862745, a: 1}
+  - {r: 0.92941177, g: 0.85882354, b: 0.23921569, a: 1}
+  - {r: 0.70980394, g: 0.22352941, b: 0.24705882, a: 1}
+  - {r: 0.04032612, g: 0, b: 1, a: 1}
+  - {r: 0.5361695, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.78515863, a: 1}
+  - {r: 0.9764706, g: 0.80784315, b: 0.39607844, a: 1}
+  - {r: 0.99215686, g: 0.25490198, b: 0.02745098, a: 1}
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
+  offsetX: 0.75
+  offsetY: 3
+  gamePlayArea: {x: 0, y: 0}
+  gameOver: 0
+--- !u!1 &719992782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719992783}
+  m_Layer: 0
+  m_Name: Colors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719992783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719992782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4, z: 0.01288775}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

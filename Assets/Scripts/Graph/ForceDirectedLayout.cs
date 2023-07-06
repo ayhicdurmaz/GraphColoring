@@ -13,7 +13,7 @@ public class ForceDirectedLayout
     private const float springNormalLength = 0.5f;
     private const float dampingValue = 0.1f;
 
-    public Graph GetLayout(int numberOfNodes, int numberOfAdjacecny)
+    public Graph GetLayout(int numberOfNodes, int numberOfAdjacecny, float targetWidth, float targetHeight)
     {
         graphGenerator = new GraphGenerator(numberOfNodes, numberOfAdjacecny);
         graph = graphGenerator.CreateGraph();
@@ -25,7 +25,7 @@ public class ForceDirectedLayout
             Visualize();
         }
 
-        Vector2 ratio = GetScaleRatio();
+        Vector2 ratio = GetScaleRatio(targetWidth, targetHeight);
 
         foreach (var node in graph.Nodes)
         {
@@ -109,7 +109,7 @@ public class ForceDirectedLayout
         node.Position = Vector2.Scale(ratio, node.Position);
     }
 
-    public Vector2 GetScaleRatio()
+    public Vector2 GetScaleRatio(float targetWidth, float targetHeight)
     {
         Vector2[] rectangle = graph.GetSurroundingRectangle();
 
@@ -117,9 +117,6 @@ public class ForceDirectedLayout
 
         float sourceWidth = rectangle[2].x - rectangle[1].x;
         float sourceHeight = rectangle[2].y - rectangle[1].y;
-
-        float targetWidth = 3;
-        float targetHeight = 4;
 
         float sourceAspectRatio = sourceWidth / sourceHeight;
         float targetAspectRatio = targetWidth / targetHeight;
